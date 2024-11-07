@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EIDEmployee" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="da4a9626-a453-491f-a9b1-5ffbb0328e86">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="Para_eid" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     employee.`eid` AS employee_eid,
+     employee.`employee_name` AS employee_employee_name,
+     employee.`Tp_Number` AS employee_Tp_Number,
+     employee.`main_address` AS employee_main_address,
+     employee.`temp_address` AS employee_temp_address,
+     employee.`bank` AS employee_bank,
+     employee.`city` AS employee_city,
+     employee.`person_name` AS employee_person_name,
+     employee.`contact_person` AS employee_contact_person,
+     employee.`person_tp` AS employee_person_tp,
+     employee.`email` AS employee_email,
+     employee.`online` AS employee_online
+FROM
+     `employee` employee WHERE eid = $P{Para_eid}]]>
+	</queryString>
+	<field name="employee_eid" class="java.lang.Integer"/>
+	<field name="employee_employee_name" class="java.lang.String"/>
+	<field name="employee_Tp_Number" class="java.lang.String"/>
+	<field name="employee_main_address" class="java.lang.String"/>
+	<field name="employee_temp_address" class="java.lang.String"/>
+	<field name="employee_bank" class="java.lang.String"/>
+	<field name="employee_city" class="java.lang.String"/>
+	<field name="employee_person_name" class="java.lang.String"/>
+	<field name="employee_contact_person" class="java.lang.String"/>
+	<field name="employee_person_tp" class="java.lang.String"/>
+	<field name="employee_email" class="java.lang.String"/>
+	<field name="employee_online" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="129" splitType="Stretch">
+			<image>
+				<reportElement x="133" y="10" width="300" height="64" uuid="fec08a5e-2237-45ce-9265-6d6b15d702dd"/>
+				<imageExpression><![CDATA["SmartStock.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="SubTitle" x="116" y="74" width="344" height="22" uuid="aee95792-a3a1-48b9-81eb-0e31fa6e216d"/>
+				<text><![CDATA[Simplifying Inventory, Amplifying Efficiency]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Title" x="133" y="96" width="306" height="33" uuid="924c7329-5f22-470e-a234-a01e5102dcde"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[EMPLOYEE REPORTS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="614992f9-118e-4c3e-8540-63a9376e7964"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="46" height="15" uuid="1ca6fa06-c352-42d6-8dc6-6e6c7596b472"/>
+				<text><![CDATA[EID]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="0" y="15" width="46" height="15" uuid="5dec0698-9b20-43c7-a4f4-867241ca1cd2"/>
+				<textFieldExpression><![CDATA[$F{employee_eid}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="122" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="5b3554ea-9977-4785-9b2e-a7360a26a0a3"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="16" width="133" height="15" uuid="9834f297-0c32-4b1b-bfd7-2d4c75558191"/>
+				<textFieldExpression><![CDATA[$F{employee_employee_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="0" y="46" width="145" height="15" uuid="d681185c-4b58-4d6c-a14c-cf326d914576"/>
+				<textFieldExpression><![CDATA[$F{employee_Tp_Number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="0" y="76" width="133" height="15" uuid="8b9e7141-0f33-4ba9-84d3-30de530e9846"/>
+				<textFieldExpression><![CDATA[$F{employee_main_address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="0" y="106" width="145" height="15" uuid="44183169-d5d0-4cc8-b4b9-b8d7ccc613ad"/>
+				<textFieldExpression><![CDATA[$F{employee_temp_address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="230" y="16" width="119" height="15" uuid="004bdc61-28ec-4b0d-8a94-0a7d6db387a0"/>
+				<textFieldExpression><![CDATA[$F{employee_bank}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="230" y="46" width="119" height="15" uuid="bde63343-b24c-4223-8203-717767f05b4f"/>
+				<textFieldExpression><![CDATA[$F{employee_city}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="230" y="76" width="104" height="15" uuid="90fae456-1ba8-432b-a358-a9b400827cb8"/>
+				<textFieldExpression><![CDATA[$F{employee_person_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="230" y="107" width="131" height="15" uuid="6257a797-29f1-48d2-a62a-909ce5e75b0f"/>
+				<textFieldExpression><![CDATA[$F{employee_contact_person}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="414" y="16" width="124" height="15" uuid="848b8970-f3b4-459d-b4ac-57d4dfb45609"/>
+				<textFieldExpression><![CDATA[$F{employee_person_tp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="414" y="46" width="124" height="15" uuid="ada6cdb6-a7a0-4ee1-8d5e-9691a0dfeb4f"/>
+				<textFieldExpression><![CDATA[$F{employee_email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="414" y="76" width="124" height="15" uuid="45113289-8fde-4e8e-b282-aaea11bdde56"/>
+				<textFieldExpression><![CDATA[$F{employee_online}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="0" y="1" width="46" height="15" uuid="e7bcb9d3-eda1-4787-8465-f21432cd2ae2"/>
+				<text><![CDATA[NAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="0" y="31" width="46" height="15" uuid="07091956-5b5a-4e5d-ba0f-23b580e68eca"/>
+				<text><![CDATA[TP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="0" y="61" width="98" height="15" uuid="97e91ff0-e72e-41a4-a60d-9ba72df33bab"/>
+				<text><![CDATA[MAIN ADDRESS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="0" y="91" width="92" height="15" uuid="07418a40-d4cb-4540-bdfb-5ba26432c8d4"/>
+				<text><![CDATA[TEMP ADRESS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="230" y="1" width="46" height="15" uuid="e769f83c-b798-4c0c-afb3-4852108c6465"/>
+				<text><![CDATA[BANK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="230" y="31" width="46" height="15" uuid="51ea1310-2830-450a-968e-1f9c44dbf609"/>
+				<text><![CDATA[CITY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="230" y="61" width="119" height="15" uuid="828c6e49-b0c6-483c-b7b0-77d520713726"/>
+				<text><![CDATA[CONTACT PERSON]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="230" y="92" width="94" height="15" uuid="9d15206c-0d42-48a0-a1f8-50ed85b41965"/>
+				<text><![CDATA[PERSON NAME:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="414" y="1" width="46" height="15" uuid="f062bc10-b079-4955-81d0-4441eeac1925"/>
+				<text><![CDATA[TP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="414" y="31" width="46" height="15" uuid="7918a65a-ea30-476f-8b5d-1638840e0792"/>
+				<text><![CDATA[ONLINE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="414" y="61" width="46" height="15" uuid="f3a7dfa0-4dae-4438-a8b4-c06add5dc159"/>
+				<text><![CDATA[EMAIL]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="69" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="78c99a85-fa37-485a-80a5-c96f94a4534f"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="136" y="27" width="262" height="12" forecolor="#666666" uuid="9349eb9e-948c-439e-b46d-12e3d119254b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[WE VALUE YOUR COMMENTS at Smartstock@dnsc.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="145" y="4" width="255" height="16" uuid="76b085f0-9bbe-4894-9907-a90de0e812ec"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Thank You For Your Business.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="82" y="49" width="374" height="10" uuid="6bcdddeb-aa08-4e9e-975d-b2ac1523a93f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(C)2023 SMARSTOCK Call 09625690985 at marsaga.rafael@dnsc.edu.ph]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="839ba54f-5df1-49eb-824a-164f81e07177"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="8393a34e-0dfe-4728-8114-6d52659c9f37"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="6990276a-4b9e-4741-ac47-413dac37da1e"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
